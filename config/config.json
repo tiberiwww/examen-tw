@@ -1,14 +1,14 @@
 {
   "development": {
-    "host": process.env.DATABASE_URL,
+    "use_env_variable": "DATABASE_URL",
     "dialect": "postgres"
   },
   "test": {
-    "host": process.env.DATABASE_URL,
+    "use_env_variable": "DATABASE_URL",
     "dialect": "postgres"
   },
   "production": {
-    "host": process.env.DATABASE_URL,
+    "use_env_variable": "DATABASE_URL",
     "dialect": "postgres"
   }
 }
