@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const validator = require("validator");
+const path = require("path");
 
 const app = express();
 
@@ -10,11 +11,13 @@ db.sequelize.sync();
 
 // json rest api
 app.use(express.json());
+app.use(cors());
+app.use(express.static(path.join(__dirname, 'build')))
 
-// cors
-app.use(cors({
-    origin: "http://localhost:3000"
-}));
+// // cors
+// app.use(cors({
+//     origin: "http://localhost:3000"
+// }));
 
 
 // operatie POST pentru prima entitate
@@ -205,6 +208,6 @@ app.get("/list/:id/video", async (req, res) => {
 });
 
 // pornim serverul
-app.listen(5000, async () => {
+app.listen(process.env.PORT, async () => {
     console.log("app start on 5000");
 });
